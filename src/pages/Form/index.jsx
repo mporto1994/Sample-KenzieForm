@@ -6,13 +6,11 @@ import * as yup from "yup"
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form"
 import { useHistory } from "react-router-dom"
-
+import {Button} from "../../components/button"
 
 const Form =({user, setUser}) =>{
     const history = useHistory()
     const [log, setLog] = useState(false)
-
-    // useEffect(()=>{},[user])
 
     const formSchema = yup.object().shape({
     name:                     yup.string().required("Nome Obrigatório!"),
@@ -59,7 +57,7 @@ const Form =({user, setUser}) =>{
                             <Input type="password" label="Confirmação de senha" id="passwordConfirmation" placeholder="Confirme sua Senha" register={register}/>
                             { errors.passwordConfirm && <p className="errorsP">{errors.passwordConfirm.message}</p>}
                         </div>
-                        <button type="submit">Enviar</button>
+                        <Button type="submit">Enviar</Button>
                     </form>
 
                 </div>
